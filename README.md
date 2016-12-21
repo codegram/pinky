@@ -11,7 +11,7 @@ Elixir processes. Let's see an example:
 ```elixir
 Pinky.promise(fn -> expensive_computation() end)
 |> Pinky.map(fn result -> result + 5 end)
-|> Pinky.flatmap(fn result ->
+|> Pinky.flat_map(fn result ->
      if result > 10 do
        Pinky.promise(fn -> nested_computation(result) end)
      else

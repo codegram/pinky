@@ -124,17 +124,17 @@ defmodule Pinky do
   ## Examples
 
       iex> Pinky.resolved(3) |>
-      ...> Pinky.flatmap(fn x -> Pinky.promise(fn -> x + 1 end) end) |>
+      ...> Pinky.flat_map(fn x -> Pinky.promise(fn -> x + 1 end) end) |>
       ...> Pinky.extract
       {:ok, 4}
 
       iex> Pinky.rejected("outer failed") |>
-      ...> Pinky.flatmap(fn x -> Pinky.promise(fn -> x + 1 end) end) |>
+      ...> Pinky.flat_map(fn x -> Pinky.promise(fn -> x + 1 end) end) |>
       ...> Pinky.extract
       {:error, "outer failed"}
 
       iex> Pinky.resolved(3) |>
-      ...> Pinky.flatmap(fn x ->
+      ...> Pinky.flat_map(fn x ->
       ...>                if x > 2 do
       ...>                  Pinky.rejected("inner failed")
       ...>                else
@@ -145,7 +145,7 @@ defmodule Pinky do
       {:error, "inner failed"}
 
   """
-  def flatmap(promise, f) do
+  def flat_map(promise, f) do
     pid = spawn(fn ->
       v = case extract(promise) do
             {:ok, value} -> try do
