@@ -1,6 +1,6 @@
 # Pinky
 
-[![Travis](https://img.shields.io/travis/codegram/pinky.svg?style=flat-square)](https://travis-ci.org/devinus/pinky)
+[![Travis](https://img.shields.io/travis/codegram/pinky.svg?style=flat-square)](https://travis-ci.org/codegram/pinky)
 [![Hex.pm](https://img.shields.io/hexpm/v/pinky.svg?style=flat-square)](https://hex.pm/packages/pinky)
 
 A promise library for Elixir.

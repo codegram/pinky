@@ -1,1 +1,9 @@
 language: elixir
+
+matrix:
+  include:
+    - elixir: 1.2.0
+    - elixir: 1.3.4
+
+sudo:
+  false
